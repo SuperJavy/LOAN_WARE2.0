@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitudes - LoanWare</title>
+    <link rel="stylesheet" href="publico.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <h1>LoanWare</h1>
+    </div>
+
+    <div class="perfil-btn">
+        <button onclick="togglePerfil()">👤</button>
+    </div>
+
+    <div class="menu-perfil" id="menuPerfil">
+        <a href="perfil.php">Mi perfil</a>
+        <a href="configuracion.php">Configuración</a>
+        <a href="logout.php" class="logout">Cerrar sesión</a>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="equipos.html">Equipos</a>
+    <a href="solicitudes.html">Solicitudes</a>
+    <a href="historial.html">Historial</a>
+</nav>
+
+<main>
+<section>
+
+    <h2>Consultar solicitudes</h2>
+
+    <form id="buscarForm" onsubmit="cargarSolicitudes(event)">
+        <label>ID de usuario:</label>
+        <input type="number" id="idUsuario" required>
+        <button type="submit">Cargar</button>
+    </form>
+
+    <br>
+
+    <div class="contenido">
+        <table id="tablaSolicitudes" style="display:none;">
+            <thead>
+                <tr>
+                    <th>ID Solicitud</th>
+                    <th>ID Usuario</th>
+                    <th>ID Equipo</th>
+                    <th>Equipo</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <br><br>
+
+    <h2>Crear nueva solicitud</h2>
+
+    <form id="formSolicitud" onsubmit="crearSolicitud(event)">
+        <label>ID Usuario:</label>
+        <input type="number" name="id_usuario" required>
+
+        <label>ID Equipo:</label>
+        <input type="number" name="id_equipo" required>
+
+        <button type="submit">Enviar solicitud</button>
+    </form>
+
+</section>
+</main>
+
+<script>
+function togglePerfil() {
+    document.getElementById("menuPerfil").classList.toggle("activo");
+}
+
+function cargarSolicitudes(e) {
+    e.preventDefault();
+
+    const idUsuario = document.getElementById("idUsuario").value;
+
+    fetch("listar_solicitudes.php?id_usuario=" + idUsuario)
+        .then(resp => resp.text())
+        .then(data => {
+            const tabla = document.getElementById("tablaSolicitudes");
+            const tbody = tabla.querySelector("tbody");
+
+            tbody.innerHTML = "";
+
+            if (data.trim() === "No hay solicitudes") {
+                alert("No hay solicitudes para este usuario");
+                tabla.style.display = "none";
+                return;
+            }
+
+            const filas = data.trim().split("\n");
+
+            filas.forEach(f => {
+                const c = f.split("|");
+
+                const fila = `
+                    <tr>
+                        <td>${c[0]}</td>
+                        <td>${c[1]}</td>
+                        <td>${c[2]}</td>
+                        <td>${c[3]}</td>
+                        <td>${c[4]}</td>
+                        <td><span class="estado ${c[5]}">${c[5]}</span></td>
+                    </tr>
+                `;
+
+                tbody.innerHTML += fila;
+            });
+
+            tabla.style.display = "table";
+        });
+}
+
+function crearSolicitud(e) {
+    e.preventDefault();
+
+    const datos = new FormData(document.getElementById("formSolicitud"));
+
+    fetch("crear_solicitud.php", {
+        method: "POST",
+        body: datos
+    })
+        .then(resp => resp.text())
+        .then(data => {
+            alert(data);
+            document.getElementById("formSolicitud").reset();
+        });
+}
+</script>
+
+</body>
+</html>
+

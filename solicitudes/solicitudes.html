@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes de Préstamo - Administrador</title>
+    <link rel="stylesheet" href="publico.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>LoanWare</h1>
+        </div>
+        <p>Panel de Administración — Solicitudes</p>
+
+        <div class="login-btn">
+            <a href="login.html">Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="solicitudes.html">Solicitudes</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="historial.html">Historial</a>
+        <a href="quienes.html">Quiénes Somos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <section class="seccion">
+        <h2>Solicitudes de Préstamo — Administradores</h2>
+        <p>En esta sección, los administradores pueden revisar, aprobar o rechazar las solicitudes de préstamo de los usuarios.</p>
+
+        <div class="tabla-contenedor">
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Equipo</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaSolicitudes">
+                    <!-- Aquí se cargan las solicitudes automáticamente -->
+                </tbody>
+
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+
+            <div class="footer-col">
+                <h3>LoanWare</h3>
+                <p>Sistema de administración de préstamo de equipos educativos.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: soporte@loanware.com</p>
+                <p>Teléfono: +52 123 456 7890</p>
+                <p>Huejutla de Reyes, Hidalgo</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <div class="redes-sociales">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">X / Twitter</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Aviso de privacidad</a><br>
+                <a href="#">Términos y condiciones</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 LoanWare — Todos los derechos reservados
+        </div>
+    </footer>
+
+
+
+    <script>
+        function cargarSolicitudes() {
+            fetch("apiSolicitudesAdmin.php") // Ajusta el nombre si es otro
+                .then(res => res.text())
+                .then(texto => {
+
+                    const tbody = document.getElementById("tablaSolicitudes");
+                    tbody.innerHTML = "";
+
+                    if (texto.trim() === "No hay solicitudes") {
+                        tbody.innerHTML = "<tr><td colspan='6'>No hay solicitudes</td></tr>";
+                        return;
+                    }
+
+                    const lineas = texto.trim().split("\n");
+
+                    lineas.forEach(linea => {
+
+                        const datos = linea.split("|");
+
+                        const id = datos[0];
+                        const usuario = datos[1];
+                        const equipo = datos[2];
+                        const fecha = datos[3];
+                        const motivo = datos[4];
+                        const estado = datos[5];
+
+                        const tr = document.createElement("tr");
+
+                        tr.innerHTML = `
+                            <td>${usuario}</td>
+                            <td>${equipo}</td>
+                            <td>${fecha}</td>
+                            <td>${motivo}</td>
+                            <td><span class="estado ${estado.toLowerCase()}">${estado}</span></td>
+                            <td>
+                                <button onclick="actualizarEstado(${id}, 'aprobado')" class="btn-aceptar">Aprobar</button>
+                                <button onclick="actualizarEstado(${id}, 'rechazado')" class="btn-rechazar">Rechazar</button>
+                                <button onclick="verHistorial(${id})" class="btn-detalles">Detalles</button>
+                            </td>
+                        `;
+
+                        tbody.appendChild(tr);
+
+                    });
+
+                });
+        }
+
+        // Llama APIs de actualización
+        function actualizarEstado(id, estado) {
+            const formData = new FormData();
+            formData.append("id_solicitud", id);
+            formData.append("estado", estado);
+
+            fetch("actualizarEstado.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(res => res.text())
+                .then(r => {
+                    alert(r);
+                    cargarSolicitudes();
+                });
+        }
+
+        // Ver historial
+        function verHistorial(id) {
+            window.location = "historial.html?id_solicitud=" + id;
+        }
+
+        // Cargar al iniciar
+        cargarSolicitudes();
+    </script>
+
+</body>
+
+</html>

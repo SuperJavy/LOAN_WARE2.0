@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - LOANWARE</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+    <header class="barra-superior">
+    <span class="titulo-barra">REGISTRO - LOANWARE</span>
+    <button class="btn-regresar" onclick="window.location.href='index.html'">
+        Regresar
+    </button>
+</header>
+
+    <main class="contenedor">
+
+        <section class="izquierda">
+            <div class="contenido-izquierda">
+                <h1>SISTEMA DE PRÉSTAMO<br>DE EQUIPO Y<br>ACCESORIOS DE CÓMPUTO</h1>
+            </div>
+
+            <div class="iconos">
+                <img src="1.jpg" alt="Icono de Computadora" loading="lazy">
+                <img src="2.jpg" alt="Icono de Accesorios" loading="lazy">
+                <img src="3.jpg" alt="Icono de Préstamo" loading="lazy">
+                <img src="4.jpg" alt="Icono de Servidor" loading="lazy">
+                <img src="5.jpg" alt="Icono de Red" loading="lazy">
+                <img src="6.jpg" alt="Icono de Seguridad" loading="lazy">
+            </div>
+        </section>
+
+        <section class="derecha">
+            <div class="formulario scroll">
+
+                <img src="user.png" class="avatar" alt="Avatar de usuario">
+
+                <form action="registro.php" method="POST" onsubmit="return validarRegistro();">
+
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+
+                    <label for="ap_paterno">Apellido paterno</label>
+                    <input type="text" id="ap_paterno" name="ap_paterno" placeholder="Apellido paterno" required>
+
+                    <label for="ap_materno">Apellido materno</label>
+                    <input type="text" id="ap_materno" name="ap_materno" placeholder="Apellido materno" required>
+
+                    <label for="correo">Correo institucional</label>
+                    <input type="email" id="correo" name="correo" placeholder="tumatrícula@uthh.edu.mx" required>
+
+                    <label for="usuario">Nombre de usuario</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Solo letras y números" required>
+
+                    <label for="pass">Contraseña</label>
+                    <input type="password" id="pass" name="pass" placeholder="Mín. 8, mayús, minús, número" required>
+
+                    <label for="pass2">Confirmar contraseña</label>
+                    <input type="password" id="pass2" placeholder="Repita la contraseña" required>
+
+                    <div class="mostrar">
+                        <input type="checkbox" id="mostrar">
+                        <label for="mostrar">Mostrar contraseña</label>
+                    </div>
+
+                    <button type="submit" class="btn">Registrarse</button>
+
+                </form>
+
+                <p class="registro-texto">
+                    ¿Ya tienes cuenta?
+                    <a href="login.html" class="registro-link">Inicia sesión aquí</a>
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const mostrar = document.getElementById('mostrar');
+        const pass = document.getElementById('pass');
+        const pass2 = document.getElementById('pass2');
+
+        // Función para mostrar/ocultar contraseñas
+        mostrar.addEventListener('change', () => {
+            const tipo = mostrar.checked ? 'text' : 'password';
+            pass.type = tipo;
+            pass2.type = tipo;
+        });
+
+        // Función de validación del formulario
+        function validarRegistro() {
+            const correo = document.getElementById('correo').value;
+            const usuario = document.getElementById('usuario').value;
+            const p1 = pass.value;
+            const p2 = pass2.value;
+
+            // 1. Validar formato de correo institucional (8 dígitos @uthh.edu.mx)
+            const regexCorreo = /^[0-9]{8}@uthh\.edu\.mx$/;
+            if (!regexCorreo.test(correo)) {
+                alert("El correo debe ser institucional, con el formato: 8-dígitos@uthh.edu.mx (Ej: 20240994@uthh.edu.mx)");
+                return false;
+            }
+
+            // 2. Validar formato de Nombre de Usuario (solo letras y números, min. 4)
+            const regexUsuario = /^[a-zA-Z0-9]{4,}$/;
+            if (!regexUsuario.test(usuario)) {
+                alert("El nombre de usuario debe tener al menos 4 caracteres y solo puede contener letras (a-z, A-Z) y números (0-9).");
+                return false;
+            }
+
+            // 3. Validar fortaleza de la Contraseña (Mín. 8 caracteres, mayúscula, minúscula, número)
+            const regexContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            if (!regexContrasena.test(p1)) {
+                alert("La contraseña debe tener un mínimo de 8 caracteres e incluir al menos una letra mayúscula, una letra minúscula y un número.");
+                return false;
+            }
+
+            // 4. Validar que las contraseñas coincidan
+            if (p1 !== p2) {
+                alert("Las contraseñas no coinciden");
+                return false;
+            }
+
+            // Las validaciones de "correo/usuario ya existe" se manejan en el servidor (registro.php)
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
+

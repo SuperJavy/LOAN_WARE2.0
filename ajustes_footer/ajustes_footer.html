@@ -1,0 +1,104 @@
+-<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes de Sitio | LoanWare</title>
+    <link rel="stylesheet" href="publico.css"> 
+    <style>
+        .contenedor-principal {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="email"], input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .btn-guardar {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .btn-guardar:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+        <header>
+        <h1>LoanWare</h1>
+    </div>
+    <p>Sistema Escolar de Préstamo de Equipos</p>
+
+    <div class="login-btn">
+        <span style="color:white; margin-right: 10px;">Hola, <?php echo htmlspecialchars($nombre_usuario); ?></span>
+        <a href="perfil.php" class="logout-btn">Perfil</a> 
+    </div>
+    </header>
+
+    <nav>
+        <a href="adminDashboard.php">Inicio</a>
+        <a href="inventario.php">Inventario</a>
+        <a href="historial.php">Solicitudes</a>
+        <a href="usuario.php">Gestión de Usuarios</a>
+        <a href="../ajustes_footer.php">Ajustes</a> 
+        <a href="marca.html">Marca</a>
+        <a href="categoria.html">Categoria</a>
+        <div class="dropdown">
+            <button class="dropbtn">Movimientos</button>
+            <div class="dropdown-content">
+                <a href="prestamos.html">Prestamos</a>
+                <a href="devoluciones.html">Devoluciones</a>
+            </div>
+        </div>
+        <div class="dropdown">
+        <button class="dropbtn">Acerca de...</button>
+        <div class="dropdown-content">
+            <a href="quienes.php">Quiénes Somos</a>
+            <a href="mision.php">Misión</a>
+            <a href="vision.php">Visión</a>
+        </div>
+    </div>
+    
+    </nav>
+    
+    
+    <?php // include('admin/header_admin.php'); ?>
+
+    <div class="contenedor-principal">
+        <h2>Editar Ajustes Globales (Footer)</h2>
+        <?php echo $mensaje; ?>
+        
+        <form method="POST" action="ajustes_footer.php" class="formulario-ajustes">
+
+            <h3>Información de Contacto</h3>
+            
+            <label for="email">Email de Contacto:</label>
+            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email_actual); ?>" required>
+
+            <label for="telefono">Teléfono de Contacto:</label>
+            <input type="text" id="telefono" name="telefono" value="<?php echo htmlspecialchars($telefono_actual); ?>" required>
+            
+            <h3>Derechos de Autor</h3>
+
+            <label for="copyright">Texto de Copyright:</label>
+            <textarea id="copyright" name="copyright" rows="2" required><?php echo htmlspecialchars($copyright_actual); ?></textarea>
+
+            <button type="submit" class="btn-guardar">Guardar Cambios</button>
+        </form>
+    </div>
+
+   
+</body>
+</html>

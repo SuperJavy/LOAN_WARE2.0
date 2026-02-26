@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Admin LoanWare</title>
+    <link rel="stylesheet" href="publico.css">
+</head>
+<body>
+
+    <header>
+        <h1>LoanWare</h1>
+    </div>
+    <p>Sistema Escolar de Préstamo de Equipos</p>
+
+    <div class="login-btn">
+        <span style="color:white; margin-right: 10px;">Hola, <?php echo htmlspecialchars($nombre_usuario); ?></span>
+        <a href="perfil.php" class="logout-btn">Perfil</a> 
+    </div>
+    </header>
+
+    <nav>
+        <a href="adminDashboard.php">Inicio</a>
+        <a href="inventario.php">Inventario</a>
+        <a href="historial.php">Solicitudes</a>
+        <a href="usuario.php">Gestión de Usuarios</a>
+        <a href="ajustes_footer.php">Ajustes</a> 
+        <a href="marca.html">Marca</a>
+        <a href="categoria.html">Categoria</a>
+        <div class="dropdown">
+            <button class="dropbtn">Movimientos</button>
+            <div class="dropdown-content">
+                <a href="prestamos.html">Prestamos</a>
+                <a href="devoluciones.html">Devoluciones</a>
+            </div>
+        </div>
+        <div class="dropdown">
+        <button class="dropbtn">Acerca de...</button>
+        <div class="dropdown-content">
+            <a href="quienes.php">Quiénes Somos</a>
+            <a href="mision.php">Misión</a>
+            <a href="vision.php">Visión</a>
+        </div>
+    </div>
+    </nav>
+
+    <main class="contenedor-principal">
+        <section class="contenido">
+            
+        
+        <h2>Bienvenido al Dashboard, <?php echo htmlspecialchars($nombre_usuario); ?></h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card pending">
+                <h3>Solicitudes Pendientes</h3>
+                <p class="number"><?php echo $solicitudes_pendientes; ?></p>
+                <a href="historial.php"><button>Ver</button></a>
+                 
+            </div>
+
+            
+            <div class="stat-card overdue">
+                <h3>Devoluciones Vencidas</h3>
+                <p class="number">3</p>
+                <p class="small-info">Requieren seguimiento.</p>
+            </div>
+        </div>
+        
+    </main>
+</body>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario | LoanWare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 font-['Montserrat']">
+
+<header class="header flex justify-between items-center px-[5%] py-4 shadow-md sticky top-0 z-50">
+    <div class="logo">
+        <h1 class="text-2xl font-bold">Loan<span>Ware</span></h1>
+    </div>
+    <p class="hidden md:block subtitulo">Sistema Escolar de Préstamo de Equipos</p>
+
+    <div class="flex items-center gap-4">
+        <span class="text-white text-sm font-medium">Hola, Administrador</span>
+        <a href="/perfil/perfil.html" class="logout-btn">Perfil</a>
+    </div>
+</header>
+
+<nav class="main-nav">
+    <a href="/adminDashboard/adminDashboard.html">Inicio</a>
+    <a href="/inventario/inventario.html" class="active">Inventario</a>
+    <a href="/historial/historial.html">Solicitudes</a>
+    <a href="/usuario/usuario.html">Usuarios</a>
+
+    <div class="dropdown group relative">
+        <button class="dropbtn">Movimientos ▼</button>
+        <div class="dropdown-content group-hover:block absolute hidden top-full left-0 bg-white shadow-xl rounded-b-lg overflow-hidden min-w-[180px] z-50">
+            <a href="/prestamos/prestamos.html">Préstamos</a>
+            <a href="/devoluciones/devoluciones.html">Devoluciones</a>
+        </div>
+    </div>
+
+    <div class="dropdown group relative">
+        <button class="dropbtn">Acerca de... ▼</button>
+        <div class="dropdown-content group-hover:block absolute hidden top-full left-0 bg-white shadow-xl rounded-b-lg overflow-hidden min-w-[180px] z-50">
+            <a href="/quienes/quienes.html">Quiénes Somos</a>
+            <a href="/mision.html">Misión</a>
+            <a href="/vision.html">Visión</a>
+        </div>
+    </div>
+    <a href="/contacto/contacto.html">Contacto</a>
+</nav>
+
+<main class="contenedor-principal-inventario">
+    <div class="header-seccion">
+        <div>
+            <h2>Inventario de Equipos</h2>
+            <p>Consulta y gestiona los equipos registrados en el sistema.</p>
+        </div>
+        
+        <form class="buscador-form" onsubmit="return false;">
+            <input type="text" id="filtroNombre" placeholder="Buscar equipo..." class="input-busqueda">
+            <button class="btn-buscar">Buscar</button>
+        </form>
+    </div>
+
+    <div class="tabla-contenedor">
+        <table class="tabla-loanware">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Código QR</th>
+                    <th>Categoría</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tablaInventario">
+                <tr>
+                    <td>001</td>
+                    <td class="font-bold">Laptop Dell Latitude</td>
+                    <td>Intel i5, 16GB RAM</td>
+                    <td><span class="qr-code">QR-DELL-01</span></td>
+                    <td>Cómputo</td>
+                    <td><span class="estado disponible">Disponible</span></td>
+                    <td><button class="btn-ver" onclick="alert('Ver detalles...')">Ver</button></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td class="font-bold">Proyector Epson</td>
+                    <td>Full HD 3000 Lúmenes</td>
+                    <td><span class="qr-code">QR-PROY-05</span></td>
+                    <td>Audiovisual</td>
+                    <td><span class="estado prestado">Prestado</span></td>
+                    <td><button class="btn-ver">Ver</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido max-w-7xl mx-auto px-6 grid gap-10">
+        <div class="footer-col">
+            <h3>Loan<span>Ware</span></h3>
+            <p>Sistema de gestión de préstamo de equipos y accesorios escolares.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Contacto</h4>
+            <p>📧 LoanWare@gmail.com</p>
+            <p>📞 +52 771 234 8743</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 LoanWare — Todos los derechos reservados
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="publico.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>LoanWare</h1>
+        </div>
+        <p>Sistema Escolar de Préstamo de Equipos</p>
+
+        <div class="login-btn">
+            <span style="color:white; margin-right:10px;">
+                Hola, <?php echo htmlspecialchars($nombre_usuario); ?>
+            </span>
+            <a href="perfil.php" class="logout-btn">Perfil</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="adminDashboard.php">Inicio</a>
+        <a href="inventario.php">Inventario</a>
+        <a href="historial.php">Solicitudes</a>
+        <a href="usuario.php">Gestion de usuarios</a>
+        <a href="../ajustes_footer.php">Ajustes</a> 
+        <a href="marca.html">Marca</a>
+        <a href="categoria.html">Categoria</a>
+        <div class="dropdown">
+            <button class="dropbtn">Movimientos</button>
+            <div class="dropdown-content">
+                <a href="prestamos.html">Prestamos</a>
+                <a href="devoluciones.html">Devoluciones</a>
+            </div>
+        </div>
+        <div class="dropdown">
+        <button class="dropbtn">Acerca de...</button>
+        <div class="dropdown-content">
+            <a href="quienes.php">Quiénes Somos</a>
+            <a href="mision.php">Misión</a>
+            <a href="vision.php">Visión</a>
+        </div>
+    </div>
+    </nav>
+
+    <main class="contenedor-principal">
+        <section class="contenido">
+
+            <h2>Gestión de Usuarios</h2>
+            <p>Consulta, filtra y administra todos los usuarios registrados.</p>
+
+            <div class="tabla-contenedor">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Fecha Registro</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaUsuarios">
+                        <tr>
+                            <td colspan="8">Cargando usuarios...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top:20px;">
+                <h3>Filtro de búsqueda</h3>
+
+                <form onsubmit="cargarUsuarios(event)">
+                    <input type="text" id="filtroUsuario" placeholder="Buscar por nombre, usuario o correo">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+
+            <div class="footer-col">
+                <h3>LoanWare</h3>
+                <p>Sistema de gestión de préstamo de equipos y accesorios escolares.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: <a>LoanWare@gmail.com</a></p>
+                <p>Teléfono: <a>+52 771 234 8743</a></p>
+                <p>Huejutla de Reyes, Hidalgo</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+
+                <div class="redes-sociales">
+                    <a>Facebook</a>
+                    <a>Instagram</a>
+                    <a>X / Twitter</a>
+                    <a>TikTok</a>
+                    <a>YouTube</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+
+                <a>Aviso de privacidad</a><br>
+                <a>Términos y condiciones</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 LoanWare
+        </div>
+    </footer>
+
+   <script>
+    function cargarUsuarios(e) {
+        if (e) {
+            e.preventDefault();
+        }
+
+        const filtro = document.getElementById("filtroUsuario").value;
+        let url = "apiUsuario.php";
+
+        if (filtro.trim() !== "") {
+            url += "?filtro=" + encodeURIComponent(filtro);
+        }
+
+        const tbody = document.getElementById("tablaUsuarios");
+        tbody.innerHTML = "<tr><td colspan='8'>Cargando usuarios...</td></tr>";
+
+        fetch(url)
+            .then(resp => resp.text())
+            .then(data => {
+                tbody.innerHTML = "";
+
+                if (data.trim() === "No hay registros") {
+                    tbody.innerHTML = "<tr><td colspan='8'>No hay usuarios registrados</td></tr>";
+                    return;
+                }
+
+                const filas = data.trim().split("\n");
+
+                filas.forEach(fila => {
+                    const c = fila.split("|");
+
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${c[0]}</td>
+                            <td>${c[1]}</td>
+                            <td>${c[2]}</td>
+                            <td>${c[3]} ${c[4]}</td>
+                            <td>${c[5]}</td>
+                            <td>${c[6]}</td>
+                            <td>${c[7]}</td>
+                            <td>
+                                <button onclick="verDetalle(${c[0]})" class="btn-detalles">Ver</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            });
+    }
+
+    function verDetalle(id) {
+        alert("Usuario ID: " + id);
+    }
+
+    document.addEventListener("DOMContentLoaded", cargarUsuarios);
+</script>
+
+</body>
+</html>
