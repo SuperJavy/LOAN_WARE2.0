@@ -1,130 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Visión</title>
-    <link rel="stylesheet" href="publico.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visión | LoanWare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../publico.css">
 </head>
+
 <body>
 
-<header>
-    <div class="logo">
-        <h1>LoanWare</h1>
-    </div>
-    <p>Sistema Escolar de Préstamo de Equipos</p>
-
-    <div class="login-btn">
-        <span style="color:white; margin-right: 10px;">Hola, <?php echo htmlspecialchars($nombre_usuario); ?></span>
-        <a href="perfil.php" class="logout-btn">Perfil</a>
-    </div>
-</header>
-
-<nav>
-
-<?php if ($id_rol == 1) { ?>
-    <!-- NAV ADMIN -->
-    <a href="adminDashboard.php">Inicio</a>
-    <a href="inventario.php">Inventario</a>
-    <a href="historial.php">Solicitudes</a>
-    <a href="usuario.php">Gestión de Usuarios</a>
-    <a href="ajustes_footer.php">Ajustes</a>
-    <a href="marca.html">Marca</a>
-    <a href="categoria.html">Categoría</a>
-    <div class="dropdown">
-            <button class="dropbtn">Movimientos</button>
-            <div class="dropdown-content">
-                <a href="prestamos.html">Prestamos</a>
-                <a href="devoluciones.html">Devoluciones</a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i>
+                <h1>Loan<span>Ware</span></h1>
+            </div>
+            <div class="main-nav">
+                <span style="color:white; margin-right: 15px; font-size: 0.8rem; opacity: 0.8;">
+                    <i class="fas fa-eye" style="color: var(--accent);"></i> 
+                    Panel de <strong>Configuración</strong>
+                </span>
+                <a href="/perfil/perfil.html" class="btn-login">PERFIL</a>
             </div>
         </div>
-    <div class="dropdown">
-        <button class="dropbtn">Acerca de...</button>
-        <div class="dropdown-content">
-            <a href="quienes.php">Quiénes Somos</a>
-            <a href="mision.php">Misión</a>
-            <a href="vision.php">Visión</a>
-        </div>
-    </div>
+    </header>
 
-<?php } else { ?>
-    <!-- NAV USUARIO NORMAL -->
-    <a href="home.php">Inicio</a>
-    <a href="equipos.php">Equipos</a>
-    <a href="historial.php">Historial</a>
+    <nav class="header" style="background-color: var(--primary); border-top: 1px solid rgba(255,255,255,0.1); padding: 5px 0;">
+        <div class="header-container main-nav">
+            <a href="/adminDashboard/adminDashboard.html">Inicio</a>
+            <a href="/inventario/inventario.html">Inventario</a>
+            <a href="/solicitudes/solicitudes.html">Solicitudes</a>
+            <a href="/usuario/usuario.html">Gestión de Usuarios</a>
 
-    <div class="dropdown">
-        <button class="dropbtn">Acerca de...</button>
-        <div class="dropdown-content">
-            <a href="quienes.php">Quiénes Somos</a>
-            <a href="mision.php">Misión</a>
-            <a href="vision.php">Visión</a>
-        </div>
-    </div>
-
-    <a href="contacto.php">Contacto</a>
-<?php } ?>
-
-</nav>
-
-<main>
-    <h2>Visión</h2>
-
-    <?php if ($id_rol == 1) { ?>
-        <!-- SOLO ADMIN -->
-        <form action="guardar_vision.php" method="POST">
-            <textarea name="contenido" rows="6" style="width:100%;">
-Ser una institución de educación superior referente a nivel nacional, promoviendo innovación,
-creatividad, emprendimiento y mejora continua, contribuyendo al desarrollo sustentable.
-            </textarea>
-            <br><br>
-            <button type="submit">Guardar cambios</button>
-        </form>
-    <?php } else { ?>
-        <!-- SOLO LECTURA -->
-        <p>
-            “Ser una institución de educación superior referente a nivel nacional, promoviendo innovación,
-            creatividad, emprendimiento y mejora continua, contribuyendo al desarrollo sustentable”.
-        </p>
-    <?php } ?>
-</main>
-<footer class="footer">
-        <div class="footer-contenido">
-
-            <div class="footer-col">
-                <h3>LoanWare</h3>
-                <p>Sistema de gestión de préstamo de equipos y accesorios escolares.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>Email: <a href="mailto:LoanWare@gmail.com">LoanWare@gmail.com</a></p>
-                <p>Teléfono: <a href="tel:+527712348743">+52 771 234 8743</a></p>
-                <p>Ubicación: Huejutla de Reyes, Hidalgo</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Síguenos</h4>
-                <div class="redes-sociales">
-                    <a href="https://www.facebook.com/share/1Fhs9Vqs5o/" class="icono"> Facebook</a>
-                    <a href="https://www.instagram.com/im.levhiatan?igsh=MXJkdGV2c2c0Mjdoag==" class="icono"> Instagram</a>
-                    <a href="https://x.com/Levhiatan85?t=IyHEbM7JcRV7bHAvRXB3Kg&s=09" class="icono"> X / Twitter</a>
-                    <a href="https://www.tiktok.com/@im_sklas?_r=1&_t=ZS-91U5bdgsaAr" class="icono"> TikTok</a>
-                    <a href="https://www.youtube.com/user/UTHH96" class="icono"> YouTube</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Movimientos <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/prestamos/prestamos.html">Préstamos</a>
+                    <a href="/devoluciones/devoluciones.html">Devoluciones</a>
                 </div>
             </div>
 
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Aviso de privacidad</a><br>
-                <a href="#">Términos y condiciones</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" style="color: var(--accent);">Acerca de... <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/quienes/quienes.html">Quiénes Somos</a>
+                    <a href="/mision/mision.html">Misión</a>
+                    <a href="/vision/vision.html">Visión</a>
+                </div>
+            </div>
+            <a href="/ajustes/ajustes.html">Ajustes</a>
+        </div>
+    </nav>
+
+    <main class="container seccion-about" style="padding-top: 40px;">
+        
+        <div class="section-header">
+            <span class="tag">Identidad Institucional</span>
+            <h2>Nuestra <span style="color: var(--primary);">Visión</span></h2>
+            <div class="line"></div>
+            <p style="color: var(--text-muted);">Define el rumbo y las aspiraciones a largo plazo de nuestra organización.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="card" style="padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">
+                    <i class="fas fa-edit"></i> Editar Contenido
+                </h3>
+                <form>
+                    <textarea style="width: 100%; min-height: 150px; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; font-size: 1rem; margin-bottom: 20px; line-height: 1.6;">
+                    </textarea>
+                    
+                    <button type="button" class="btn-primary" style="border: none; cursor: pointer; width: 100%;">
+                        <i class="fas fa-save"></i> GUARDAR CAMBIOS
+                    </button>
+                </form>
             </div>
 
+            <div class="about-text">
+                <div class="stat-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Impacto Esperado</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">
+                        Buscamos que LoanWare facilite el camino hacia esta visión mediante la gestión tecnológica eficiente.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="footer-bottom">
-            © 2025 LoanWare — Todos los derechos reservados
+    </main>
+    <div class="accessibility-wrapper" id="draggableWrapper">
+            <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
+                <i class="fas fa-universal-access"></i> 
+            </button>
+            
+            <div class="access-menu" id="accessMenu">
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
         </div>
-    </footer>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
+        </div>
+    </div>
+        </div>
 
+    <div id="reading-guide" class="reading-guide"></div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-contenido container">
+                <div class="footer-col about">
+                    <h3>Loan<span>Ware</span></h3>
+                    <p>Optimizando el acceso tecnológico en la educación.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> LoanWare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +52 771 234 8743</p>
+                    <p><i class="fas fa-location-dot"></i> Huejutla, Hidalgo</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <nav class="footer-links">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                        <a href="#">Ayuda</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LoanWare — Diseñado para el éxito educativo
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        
+        <script src="../main.js"></script>
 </body>
 </html>

@@ -22,30 +22,34 @@
     </div>
 </header>
 
-<nav class="main-nav">
-    <a href="/adminDashboard/adminDashboard.html">Inicio</a>
-    <a href="/inventario/inventario.html" class="active">Inventario</a>
-    <a href="/historial/historial.html">Solicitudes</a>
-    <a href="/usuario/usuario.html">Usuarios</a>
+<nav class="header" style="background-color: var(--primary); border-top: 1px solid rgba(255,255,255,0.1); padding: 5px 0;">
+        <div class="header-container main-nav">
+            <a href="/adminDashboard/adminDashboard.html">Inicio</a>
+            <a href="/inventario/inventario.html">Inventario</a>
+            <a href="/historial/historial.html">Solicitudes</a>
+            <a href="/usuario/usuario.html">Usuarios</a>
+            <a href="/ajustes_footer/ajustes_footer.html">Ajustes</a> 
+            <a href="/marca/marca.html">Marca</a>
+            <a href="/categoria/categoria.html" style="color: var(--accent);">Categoría</a>
 
-    <div class="dropdown group relative">
-        <button class="dropbtn">Movimientos ▼</button>
-        <div class="dropdown-content group-hover:block absolute hidden top-full left-0 bg-white shadow-xl rounded-b-lg overflow-hidden min-w-[180px] z-50">
-            <a href="/prestamos/prestamos.html">Préstamos</a>
-            <a href="/devoluciones/devoluciones.html">Devoluciones</a>
-        </div>
-    </div>
+            <div class="dropdown" style="display: inline-block; position: relative;">
+                <a href="#" class="dropbtn">MOVIMIENTOS <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="prestamos.html"><i class="fas fa-arrow-up"></i> Préstamos</a>
+                    <a href="devoluciones.html"><i class="fas fa-arrow-down"></i> Devoluciones</a>
+                </div>
+            </div>
 
-    <div class="dropdown group relative">
-        <button class="dropbtn">Acerca de... ▼</button>
-        <div class="dropdown-content group-hover:block absolute hidden top-full left-0 bg-white shadow-xl rounded-b-lg overflow-hidden min-w-[180px] z-50">
-            <a href="/quienes/quienes.html">Quiénes Somos</a>
-            <a href="/mision.html">Misión</a>
-            <a href="/vision.html">Visión</a>
+            <div class="dropdown" style="display: inline-block; position: relative;">
+                <a href="#" class="dropbtn">ACERCA DE... <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="quienes.html">Quiénes Somos</a>
+                    <a href="mision.html">Misión</a>
+                    <a href="vision.html">Visión</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <a href="/contacto/contacto.html">Contacto</a>
-</nav>
+    </nav>
 
 <main class="contenedor-principal-inventario">
     <div class="header-seccion">

@@ -4,172 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitudes de Préstamo - Administrador</title>
-    <link rel="stylesheet" href="publico.css">
+    <title>Solicitudes - LOANWARE Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../publico.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            <h1>LoanWare</h1>
-        </div>
-        <p>Panel de Administración — Solicitudes</p>
-
-        <div class="login-btn">
-            <a href="login.html">Cerrar Sesión</a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h1>LOAN<span>WARE</span></h1>
+            </div>
+            <nav class="main-nav">
+                <a href="../index.html">Inicio</a>
+                <a href="/solicitudes/solicitudes.html">Solicitudes</a>
+                <a href="/equipos/equipos.html">Equipos</a>
+                <a href="/historial/historial.html">Historial</a>
+                <a href="/quienes/quienes.html">Quiénes Somos</a>
+                <a href="/Contacto/contacto.html">Contacto</a>
+            </nav>
+            <a href="/Login/login.html" class="btn-login">Cerrar Sesión</a>
         </div>
     </header>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="solicitudes.html">Solicitudes</a>
-        <a href="equipos.html">Equipos</a>
-        <a href="historial.html">Historial</a>
-        <a href="quienes.html">Quiénes Somos</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+    <main class="container seccion-about">
+        
+        <div class="section-header">
+            <span class="tag">Panel de Administración</span>
+            <h2>Solicitudes de <span style="color: var(--primary);">Préstamo</span></h2>
+            <div class="line"></div>
+            <p style="color: var(--text-muted);">Gestiona las peticiones de equipo y accesorios de cómputo de los usuarios.</p>
+        </div>
 
-    <section class="seccion">
-        <h2>Solicitudes de Préstamo — Administradores</h2>
-        <p>En esta sección, los administradores pueden revisar, aprobar o rechazar las solicitudes de préstamo de los usuarios.</p>
-
-        <div class="tabla-contenedor">
-            <table class="tabla">
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
                 <thead>
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Equipo</th>
-                        <th>Fecha de Solicitud</th>
-                        <th>Motivo</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
+                    <tr style="background-color: var(--primary); color: var(--white);">
+                        <th style="padding: 20px;">Usuario</th>
+                        <th style="padding: 20px;">Equipo</th>
+                        <th style="padding: 20px;">Fecha Solicitud</th>
+                        <th style="padding: 20px;">Motivo</th>
+                        <th style="padding: 20px;">Estado</th>
+                        <th style="padding: 20px;">Acciones</th>
                     </tr>
                 </thead>
-
-                <tbody id="tablaSolicitudes">
-                    <!-- Aquí se cargan las solicitudes automáticamente -->
+                <tbody style="color: var(--text-dark);">
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px 20px; font-weight: 600;">20240994</td>
+                        <td style="padding: 15px 20px;">Laptop Dell Latitude</td>
+                        <td style="padding: 15px 20px;">01/03/2026</td>
+                        <td style="padding: 15px 20px;">Práctica de Redes</td>
+                        <td style="padding: 15px 20px;">
+                            <span class="badge" style="background: rgba(26, 57, 42, 0.1); color: var(--primary);">Pendiente</span>
+                        </td>
+                        <td style="padding: 15px 20px;">
+                            <button style="border: none; background: none; color: #059669; cursor: pointer; font-size: 1.1rem; margin-right: 10px;" title="Aprobar"><i class="fas fa-check-circle"></i></button>
+                            <button style="border: none; background: none; color: #dc2626; cursor: pointer; font-size: 1.1rem; margin-right: 10px;" title="Rechazar"><i class="fas fa-times-circle"></i></button>
+                            <button style="border: none; background: none; color: var(--text-muted); cursor: pointer; font-size: 1.1rem;" title="Ver Detalles"><i class="fas fa-eye"></i></button>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px 20px; font-weight: 600;">20240882</td>
+                        <td style="padding: 15px 20px;">Cámara Canon EOS</td>
+                        <td style="padding: 15px 20px;">28/02/2026</td>
+                        <td style="padding: 15px 20px;">Proyecto Audiovisual</td>
+                        <td style="padding: 15px 20px;">
+                            <span class="badge" style="background: rgba(9, 255, 0, 0.2); color: #047857;">Aprobado</span>
+                        </td>
+                        <td style="padding: 15px 20px;">
+                            <button style="border: none; background: none; color: var(--text-muted); cursor: pointer; font-size: 1.1rem;" title="Ver Detalles"><i class="fas fa-eye"></i></button>
+                        </td>
+                    </tr>
                 </tbody>
-
             </table>
         </div>
-    </section>
+    </main>
+    <div class="accessibility-wrapper" id="draggableWrapper">
+            <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
+                <i class="fas fa-universal-access"></i> 
+            </button>
+            
+            <div class="access-menu" id="accessMenu">
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
+        </div>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
+        </div>
+    </div>
+        </div>
 
-    <footer class="footer">
-        <div class="footer-contenido">
+    <div id="reading-guide" class="reading-guide"></div>
+        </div>
 
-            <div class="footer-col">
-                <h3>LoanWare</h3>
-                <p>Sistema de administración de préstamo de equipos educativos.</p>
-            </div>
+        <footer class="footer">
+            <div class="footer-contenido container">
+                <div class="footer-col about">
+                    <h3>Loan<span>Ware</span></h3>
+                    <p>Optimizando el acceso tecnológico en la educación.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
 
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>Email: soporte@loanware.com</p>
-                <p>Teléfono: +52 123 456 7890</p>
-                <p>Huejutla de Reyes, Hidalgo</p>
-            </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> LoanWare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +52 771 234 8743</p>
+                    <p><i class="fas fa-location-dot"></i> Huejutla, Hidalgo</p>
+                </div>
 
-            <div class="footer-col">
-                <h4>Síguenos</h4>
-                <div class="redes-sociales">
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">X / Twitter</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">YouTube</a>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <nav class="footer-links">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                        <a href="#">Ayuda</a>
+                    </nav>
                 </div>
             </div>
-
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Aviso de privacidad</a><br>
-                <a href="#">Términos y condiciones</a>
+            <div class="footer-bottom">
+                &copy; 2026 LoanWare — Diseñado para el éxito educativo
             </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            © 2025 LoanWare — Todos los derechos reservados
-        </div>
-    </footer>
-
-
-
-    <script>
-        function cargarSolicitudes() {
-            fetch("apiSolicitudesAdmin.php") // Ajusta el nombre si es otro
-                .then(res => res.text())
-                .then(texto => {
-
-                    const tbody = document.getElementById("tablaSolicitudes");
-                    tbody.innerHTML = "";
-
-                    if (texto.trim() === "No hay solicitudes") {
-                        tbody.innerHTML = "<tr><td colspan='6'>No hay solicitudes</td></tr>";
-                        return;
-                    }
-
-                    const lineas = texto.trim().split("\n");
-
-                    lineas.forEach(linea => {
-
-                        const datos = linea.split("|");
-
-                        const id = datos[0];
-                        const usuario = datos[1];
-                        const equipo = datos[2];
-                        const fecha = datos[3];
-                        const motivo = datos[4];
-                        const estado = datos[5];
-
-                        const tr = document.createElement("tr");
-
-                        tr.innerHTML = `
-                            <td>${usuario}</td>
-                            <td>${equipo}</td>
-                            <td>${fecha}</td>
-                            <td>${motivo}</td>
-                            <td><span class="estado ${estado.toLowerCase()}">${estado}</span></td>
-                            <td>
-                                <button onclick="actualizarEstado(${id}, 'aprobado')" class="btn-aceptar">Aprobar</button>
-                                <button onclick="actualizarEstado(${id}, 'rechazado')" class="btn-rechazar">Rechazar</button>
-                                <button onclick="verHistorial(${id})" class="btn-detalles">Detalles</button>
-                            </td>
-                        `;
-
-                        tbody.appendChild(tr);
-
-                    });
-
-                });
-        }
-
-        // Llama APIs de actualización
-        function actualizarEstado(id, estado) {
-            const formData = new FormData();
-            formData.append("id_solicitud", id);
-            formData.append("estado", estado);
-
-            fetch("actualizarEstado.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(res => res.text())
-                .then(r => {
-                    alert(r);
-                    cargarSolicitudes();
-                });
-        }
-
-        // Ver historial
-        function verHistorial(id) {
-            window.location = "historial.html?id_solicitud=" + id;
-        }
-
-        // Cargar al iniciar
-        cargarSolicitudes();
-    </script>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        
+        <script src="../main.js"></script>
 
 </body>
 

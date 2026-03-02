@@ -4,137 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - LOANWARE</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Registro | LOANWARE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../publico.css">
 </head>
 
-<body>
+<body style="background-color: #f8fafc; font-family: 'Montserrat', sans-serif;">
 
-    <header class="barra-superior">
-    <span class="titulo-barra">REGISTRO - LOANWARE</span>
-    <button class="btn-regresar" onclick="window.location.href='index.html'">
-        Regresar
-    </button>
-</header>
-
-    <main class="contenedor">
-
-        <section class="izquierda">
-            <div class="contenido-izquierda">
-                <h1>SISTEMA DE PRÉSTAMO<br>DE EQUIPO Y<br>ACCESORIOS DE CÓMPUTO</h1>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i>
+                <h1>REGISTRO - <span>LOANWARE</span></h1>
             </div>
-
-            <div class="iconos">
-                <img src="1.jpg" alt="Icono de Computadora" loading="lazy">
-                <img src="2.jpg" alt="Icono de Accesorios" loading="lazy">
-                <img src="3.jpg" alt="Icono de Préstamo" loading="lazy">
-                <img src="4.jpg" alt="Icono de Servidor" loading="lazy">
-                <img src="5.jpg" alt="Icono de Red" loading="lazy">
-                <img src="6.jpg" alt="Icono de Seguridad" loading="lazy">
+            <div class="main-nav">
+                <a href="../index.html" class="btn-login" style="background: var(--accent); color: var(--primary);">REGRESAR</a>
             </div>
+        </div>
+    </header>
+
+    <main class="container seccion-about" style="display: flex; gap: 40px; align-items: flex-start; margin-top: 40px;">
+
+        <section class="about-text" style="flex: 1;">
+            <span class="tag">Únete a nosotros</span>
+            <h2 style="font-size: 2.5rem; line-height: 1.1;">SISTEMA DE PRÉSTAMO<br>DE EQUIPO Y<br><span style="color: var(--text-muted);">ACCESORIOS</span></h2>
+            <div style="width: 80px; height: 4px; background: var(--accent); margin: 20px 0;"></div>
+            
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Crea una cuenta para gestionar tus préstamos tecnológicos de forma rápida y sencilla.</p>
+
+            
         </section>
 
-        <section class="derecha">
-            <div class="formulario scroll">
+        <section style="flex: 1;">
+            <div class="card" style="padding: 40px; background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <i class="fas fa-user-circle" style="font-size: 4rem; color: var(--primary);"></i>
+                    <h3 style="margin-top: 10px; color: var(--primary);">Crear nueva cuenta</h3>
+                </div>
 
-                <img src="user.png" class="avatar" alt="Avatar de usuario">
-
-                <form action="registro.php" method="POST" onsubmit="return validarRegistro();">
-
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
-
-                    <label for="ap_paterno">Apellido paterno</label>
-                    <input type="text" id="ap_paterno" name="ap_paterno" placeholder="Apellido paterno" required>
-
-                    <label for="ap_materno">Apellido materno</label>
-                    <input type="text" id="ap_materno" name="ap_materno" placeholder="Apellido materno" required>
-
-                    <label for="correo">Correo institucional</label>
-                    <input type="email" id="correo" name="correo" placeholder="tumatrícula@uthh.edu.mx" required>
-
-                    <label for="usuario">Nombre de usuario</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="Solo letras y números" required>
-
-                    <label for="pass">Contraseña</label>
-                    <input type="password" id="pass" name="pass" placeholder="Mín. 8, mayús, minús, número" required>
-
-                    <label for="pass2">Confirmar contraseña</label>
-                    <input type="password" id="pass2" placeholder="Repita la contraseña" required>
-
-                    <div class="mostrar">
-                        <input type="checkbox" id="mostrar">
-                        <label for="mostrar">Mostrar contraseña</label>
+                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">NOMBRE</label>
+                            <input type="text" placeholder="Tu nombre" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">USUARIO</label>
+                            <input type="text" placeholder="Ej: Juan2026" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn">Registrarse</button>
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">APELLIDOS (Paterno y Materno)</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <input type="text" placeholder="Paterno" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                            <input type="text" placeholder="Materno" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                        </div>
+                    </div>
 
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">CORREO INSTITUCIONAL</label>
+                        <input type="email" placeholder="matricula@uthh.edu.mx" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">CONTRASEÑA</label>
+                        <input type="password" placeholder="********" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">CONFIRMAR CONTRASEÑA</label>
+                        <input type="password" placeholder="********" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; margin-top: 10px;">
+                        REGISTRARSE AHORA
+                    </button>
                 </form>
 
-                <p class="registro-texto">
-                    ¿Ya tienes cuenta?
-                    <a href="login.html" class="registro-link">Inicia sesión aquí</a>
+                <p style="text-align: center; margin-top: 25px; font-size: 0.85rem; color: var(--text-muted);">
+                    ¿Ya tienes cuenta? 
+                    <a href="../Login/login.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">Inicia sesión aquí</a>
                 </p>
-
             </div>
         </section>
 
     </main>
+    <div class="accessibility-wrapper" id="draggableWrapper">
+            <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
+                <i class="fas fa-universal-access"></i> 
+            </button>
+            
+            <div class="access-menu" id="accessMenu">
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
+        </div>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
+        </div>
+    </div>
+        </div>
 
-    <script>
-        const mostrar = document.getElementById('mostrar');
-        const pass = document.getElementById('pass');
-        const pass2 = document.getElementById('pass2');
+    <div id="reading-guide" class="reading-guide"></div>
+        </div>
 
-        // Función para mostrar/ocultar contraseñas
-        mostrar.addEventListener('change', () => {
-            const tipo = mostrar.checked ? 'text' : 'password';
-            pass.type = tipo;
-            pass2.type = tipo;
-        });
+        <footer class="footer">
+            <div class="footer-contenido container">
+                <div class="footer-col about">
+                    <h3>Loan<span>Ware</span></h3>
+                    <p>Optimizando el acceso tecnológico en la educación.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
 
-        // Función de validación del formulario
-        function validarRegistro() {
-            const correo = document.getElementById('correo').value;
-            const usuario = document.getElementById('usuario').value;
-            const p1 = pass.value;
-            const p2 = pass2.value;
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> LoanWare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +52 771 234 8743</p>
+                    <p><i class="fas fa-location-dot"></i> Huejutla, Hidalgo</p>
+                </div>
 
-            // 1. Validar formato de correo institucional (8 dígitos @uthh.edu.mx)
-            const regexCorreo = /^[0-9]{8}@uthh\.edu\.mx$/;
-            if (!regexCorreo.test(correo)) {
-                alert("El correo debe ser institucional, con el formato: 8-dígitos@uthh.edu.mx (Ej: 20240994@uthh.edu.mx)");
-                return false;
-            }
-
-            // 2. Validar formato de Nombre de Usuario (solo letras y números, min. 4)
-            const regexUsuario = /^[a-zA-Z0-9]{4,}$/;
-            if (!regexUsuario.test(usuario)) {
-                alert("El nombre de usuario debe tener al menos 4 caracteres y solo puede contener letras (a-z, A-Z) y números (0-9).");
-                return false;
-            }
-
-            // 3. Validar fortaleza de la Contraseña (Mín. 8 caracteres, mayúscula, minúscula, número)
-            const regexContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-            if (!regexContrasena.test(p1)) {
-                alert("La contraseña debe tener un mínimo de 8 caracteres e incluir al menos una letra mayúscula, una letra minúscula y un número.");
-                return false;
-            }
-
-            // 4. Validar que las contraseñas coincidan
-            if (p1 !== p2) {
-                alert("Las contraseñas no coinciden");
-                return false;
-            }
-
-            // Las validaciones de "correo/usuario ya existe" se manejan en el servidor (registro.php)
-
-            return true;
-        }
-    </script>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <nav class="footer-links">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                        <a href="#">Ayuda</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LoanWare — Diseñado para el éxito educativo
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        
+        <script src="../main.js"></script>
 
 </body>
 
 </html>
-

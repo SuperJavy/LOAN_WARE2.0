@@ -1,104 +1,160 @@
--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajustes de Sitio | LoanWare</title>
-    <link rel="stylesheet" href="publico.css"> 
-    <style>
-        .contenedor-principal {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        label { display: block; margin-top: 15px; font-weight: bold; }
-        input[type="email"], input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        .btn-guardar {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin-top: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
-        }
-        .btn-guardar:hover { background-color: #0056b3; }
-    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../publico.css"> 
 </head>
 <body>
-        <header>
-        <h1>LoanWare</h1>
-    </div>
-    <p>Sistema Escolar de Préstamo de Equipos</p>
 
-    <div class="login-btn">
-        <span style="color:white; margin-right: 10px;">Hola, <?php echo htmlspecialchars($nombre_usuario); ?></span>
-        <a href="perfil.php" class="logout-btn">Perfil</a> 
-    </div>
-    </header>
-
-    <nav>
-        <a href="adminDashboard.php">Inicio</a>
-        <a href="inventario.php">Inventario</a>
-        <a href="historial.php">Solicitudes</a>
-        <a href="usuario.php">Gestión de Usuarios</a>
-        <a href="../ajustes_footer.php">Ajustes</a> 
-        <a href="marca.html">Marca</a>
-        <a href="categoria.html">Categoria</a>
-        <div class="dropdown">
-            <button class="dropbtn">Movimientos</button>
-            <div class="dropdown-content">
-                <a href="prestamos.html">Prestamos</a>
-                <a href="devoluciones.html">Devoluciones</a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-microchip"></i>
+                <h1>Loan<span>Ware</span></h1>
+            </div>
+            
+            <div class="main-nav">
+                <span style="color:white; margin-right: 15px; font-size: 0.8rem; opacity: 0.8;">
+                    <i class="fas fa-user-circle" style="color: var(--accent);"></i> 
+                    Hola, <strong>Administrador</strong>
+                </span>
+                <a href="/perfil/perfil.html" class="btn-login">PERFIL</a>
             </div>
         </div>
-        <div class="dropdown">
-        <button class="dropbtn">Acerca de...</button>
-        <div class="dropdown-content">
-            <a href="quienes.php">Quiénes Somos</a>
-            <a href="mision.php">Misión</a>
-            <a href="vision.php">Visión</a>
+    </header>
+
+    <nav class="header" style="background-color: var(--primary); border-top: 1px solid rgba(255,255,255,0.1); padding: 5px 0;">
+        <div class="header-container main-nav">
+            <a href="/adminDashboard/adminDashboard.html">Inicio</a>
+            <a href="/inventario/inventario.html">Inventario</a>
+            <a href="/historial/historial.html">Solicitudes</a>
+            <a href="/usuario/usuario.html">Usuarios</a>
+            <a href="/ajustes_footer/ajustes_footer.html">Ajustes</a> 
+            <a href="/marca/marca.html">Marca</a>
+            <a href="/categoria/categoria.html" style="color: var(--accent);">Categoría</a>
+
+            <div class="dropdown" style="display: inline-block; position: relative;">
+                <a href="#" class="dropbtn">MOVIMIENTOS <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="prestamos.html"><i class="fas fa-arrow-up"></i> Préstamos</a>
+                    <a href="devoluciones.html"><i class="fas fa-arrow-down"></i> Devoluciones</a>
+                </div>
+            </div>
+
+            <div class="dropdown" style="display: inline-block; position: relative;">
+                <a href="#" class="dropbtn">ACERCA DE... <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="quienes.html">Quiénes Somos</a>
+                    <a href="mision.html">Misión</a>
+                    <a href="vision.html">Visión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container seccion-about">
+        <div class="about-text">
+            <span class="tag">Configuración Global</span>
+            <h2>Editar Ajustes del Sitio</h2>
+            <p style="color: var(--text-muted);">Modifica la información de contacto y el pie de página que se muestra en todo el sistema.</p>
+        </div>
+
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <form action="#" class="about-text">
+                
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;"><i class="fas fa-envelope-open-text" style="color: var(--accent);"></i> Información de Contacto</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label for="email" style="display:block; font-weight:700; font-size: 0.8rem; margin-bottom: 5px;">EMAIL DE CONTACTO:</label>
+                        <input type="email" id="email" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-family:inherit;" value="contacto@loanware.edu" required>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label for="telefono" style="display:block; font-weight:700; font-size: 0.8rem; margin-bottom: 5px;">TELÉFONO DE CONTACTO:</label>
+                        <input type="text" id="telefono" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-family:inherit;" value="+52 000 000 0000" required>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;"><i class="fas fa-copyright" style="color: var(--accent);"></i> Derechos de Autor</h3>
+                    
+                    <label for="copyright" style="display:block; font-weight:700; font-size: 0.8rem; margin-bottom: 5px;">TEXTO DE COPYRIGHT:</label>
+                    <textarea id="copyright" rows="3" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-family:inherit; resize: none;" required>© 2026 LoanWare - Sistema Escolar de Préstamo de Equipos</textarea>
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-primary" style="border:none; cursor:pointer; width: 250px;">
+                        <i class="fas fa-save"></i> GUARDAR CAMBIOS
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div class="accessibility-wrapper" id="draggableWrapper">
+            <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
+                <i class="fas fa-universal-access"></i> 
+            </button>
+            
+            <div class="access-menu" id="accessMenu">
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
+        </div>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
         </div>
     </div>
-    
-    </nav>
-    
-    
-    <?php // include('admin/header_admin.php'); ?>
+        </div>
 
-    <div class="contenedor-principal">
-        <h2>Editar Ajustes Globales (Footer)</h2>
-        <?php echo $mensaje; ?>
+    <div id="reading-guide" class="reading-guide"></div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-contenido container">
+                <div class="footer-col about">
+                    <h3>Loan<span>Ware</span></h3>
+                    <p>Optimizando el acceso tecnológico en la educación.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> LoanWare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +52 771 234 8743</p>
+                    <p><i class="fas fa-location-dot"></i> Huejutla, Hidalgo</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <nav class="footer-links">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                        <a href="#">Ayuda</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LoanWare — Diseñado para el éxito educativo
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
         
-        <form method="POST" action="ajustes_footer.php" class="formulario-ajustes">
-
-            <h3>Información de Contacto</h3>
-            
-            <label for="email">Email de Contacto:</label>
-            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email_actual); ?>" required>
-
-            <label for="telefono">Teléfono de Contacto:</label>
-            <input type="text" id="telefono" name="telefono" value="<?php echo htmlspecialchars($telefono_actual); ?>" required>
-            
-            <h3>Derechos de Autor</h3>
-
-            <label for="copyright">Texto de Copyright:</label>
-            <textarea id="copyright" name="copyright" rows="2" required><?php echo htmlspecialchars($copyright_actual); ?></textarea>
-
-            <button type="submit" class="btn-guardar">Guardar Cambios</button>
-        </form>
-    </div>
-
-   
+        <script src="../main.js"></script>
 </body>
 </html>

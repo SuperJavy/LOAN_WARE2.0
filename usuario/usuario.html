@@ -1,190 +1,187 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de Usuarios</title>
-    <link rel="stylesheet" href="publico.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios | LoanWare Admin</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../publico.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            <h1>LoanWare</h1>
-        </div>
-        <p>Sistema Escolar de Préstamo de Equipos</p>
-
-        <div class="login-btn">
-            <span style="color:white; margin-right:10px;">
-                Hola, <?php echo htmlspecialchars($nombre_usuario); ?>
-            </span>
-            <a href="perfil.php" class="logout-btn">Perfil</a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i>
+                <h1>Loan<span>Ware</span></h1>
+            </div>
+            <div class="main-nav">
+                <span style="color:white; margin-right: 15px; font-size: 0.8rem; opacity: 0.8;">
+                    <i class="fas fa-user-shield" style="color: var(--accent);"></i> 
+                    Hola, <strong>Administrador</strong>
+                </span>
+                <a href="login.html" class="btn-login">CERRAR SESIÓN</a>
+            </div>
         </div>
     </header>
 
-    <nav>
-        <a href="adminDashboard.php">Inicio</a>
-        <a href="inventario.php">Inventario</a>
-        <a href="historial.php">Solicitudes</a>
-        <a href="usuario.php">Gestion de usuarios</a>
-        <a href="../ajustes_footer.php">Ajustes</a> 
-        <a href="marca.html">Marca</a>
-        <a href="categoria.html">Categoria</a>
-        <div class="dropdown">
-            <button class="dropbtn">Movimientos</button>
-            <div class="dropdown-content">
-                <a href="prestamos.html">Prestamos</a>
-                <a href="devoluciones.html">Devoluciones</a>
-            </div>
-        </div>
-        <div class="dropdown">
-        <button class="dropbtn">Acerca de...</button>
-        <div class="dropdown-content">
-            <a href="quienes.php">Quiénes Somos</a>
-            <a href="mision.php">Misión</a>
-            <a href="vision.php">Visión</a>
-        </div>
-    </div>
-    </nav>
+    <nav class="header" style="background-color: var(--primary); border-top: 1px solid rgba(255,255,255,0.1); padding: 5px 0;">
+        <div class="header-container main-nav">
+            <a href="/adminDashboard/adminDashboard.html">Inicio</a>
+            <a href="/inventario/inventario.html">Inventario</a>
+            <a href="/solicitudes/solicitudes.html">Solicitudes</a>
+            <a href="/usuario/usuario.html" style="color: var(--accent);">Gestión de Usuarios</a>
 
-    <main class="contenedor-principal">
-        <section class="contenido">
-
-            <h2>Gestión de Usuarios</h2>
-            <p>Consulta, filtra y administra todos los usuarios registrados.</p>
-
-            <div class="tabla-contenedor">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Correo</th>
-                            <th>Rol</th>
-                            <th>Fecha Registro</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaUsuarios">
-                        <tr>
-                            <td colspan="8">Cargando usuarios...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div style="margin-top:20px;">
-                <h3>Filtro de búsqueda</h3>
-
-                <form onsubmit="cargarUsuarios(event)">
-                    <input type="text" id="filtroUsuario" placeholder="Buscar por nombre, usuario o correo">
-                    <button type="submit">Buscar</button>
-                </form>
-            </div>
-
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-contenido">
-
-            <div class="footer-col">
-                <h3>LoanWare</h3>
-                <p>Sistema de gestión de préstamo de equipos y accesorios escolares.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>Email: <a>LoanWare@gmail.com</a></p>
-                <p>Teléfono: <a>+52 771 234 8743</a></p>
-                <p>Huejutla de Reyes, Hidalgo</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Síguenos</h4>
-
-                <div class="redes-sociales">
-                    <a>Facebook</a>
-                    <a>Instagram</a>
-                    <a>X / Twitter</a>
-                    <a>TikTok</a>
-                    <a>YouTube</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Catálogos <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/catalogos/marca.html">Marcas</a>
+                    <a href="/catalogos/categoria.html">Categorías</a>
                 </div>
             </div>
 
-            <div class="footer-col">
-                <h4>Legal</h4>
-
-                <a>Aviso de privacidad</a><br>
-                <a>Términos y condiciones</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Movimientos <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/prestamos/prestamos.html">Préstamos</a>
+                    <a href="/devoluciones/devoluciones.html">Devoluciones</a>
+                </div>
             </div>
 
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Acerca de... <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/quienes/quienes.html">Quiénes Somos</a>
+                    <a href="/mision/mision.html">Misión</a>
+                    <a href="/vision/vision.html">Visión</a>
+                </div>
+            </div>
+
+            <a href="/ajustes/ajustes.html">Ajustes</a>
+        </div>
+    </nav>
+
+    <main class="container seccion-about" style="padding-top: 40px;">
+        
+        <div class="section-header">
+            <span class="tag">Administración de Cuentas</span>
+            <h2>Gestión de <span style="color: var(--primary);">Usuarios</span></h2>
+            <div class="line"></div>
+            <p style="color: var(--text-muted);">Consulta, filtra y administra los roles y accesos de los usuarios registrados en el sistema.</p>
         </div>
 
-        <div class="footer-bottom">
-            © 2025 LoanWare
+        <div class="card" style="margin-bottom: 30px; padding: 25px;">
+            <h4 style="margin-bottom: 15px; color: var(--primary);"><i class="fas fa-search"></i> Filtro de búsqueda</h4>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="Buscar por nombre, usuario o correo..." style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit;">
+                <button class="btn-primary" style="padding: 10px 25px; border: none; cursor: pointer;">Buscar</button>
+            </div>
         </div>
-    </footer>
 
-   <script>
-    function cargarUsuarios(e) {
-        if (e) {
-            e.preventDefault();
-        }
+        <div class="card" style="padding: 0; overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background-color: var(--primary); color: white;">
+                        <th style="padding: 15px;">ID</th>
+                        <th style="padding: 15px;">USUARIO</th>
+                        <th style="padding: 15px;">NOMBRE COMPLETO</th>
+                        <th style="padding: 15px;">CORREO</th>
+                        <th style="padding: 15px;">ROL</th>
+                        <th style="padding: 15px;">REGISTRO</th>
+                        <th style="padding: 15px; text-align: center;">ACCIÓN</th>
+                    </tr>
+                </thead>
+                <tbody style="color: var(--text-dark);">
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 15px;">001</td>
+                        <td style="padding: 15px; font-weight: 700;">admin_main</td>
+                        <td style="padding: 15px;">Carlos Rodríguez López</td>
+                        <td style="padding: 15px;">c.rodriguez@loanware.com</td>
+                        <td style="padding: 15px;"><span class="badge" style="background: rgba(26,57,42,0.1); color: var(--primary);">Administrador</span></td>
+                        <td style="padding: 15px;">15/01/2026</td>
+                        <td style="padding: 15px; text-align: center;">
+                            <button title="Ver Detalle" style="background: none; border: none; color: var(--primary); cursor: pointer; font-size: 1.1rem;"><i class="fas fa-user-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 15px;">002</td>
+                        <td style="padding: 15px; font-weight: 700;">est_2024</td>
+                        <td style="padding: 15px;">Ana Martínez Sosa</td>
+                        <td style="padding: 15px;">ana.mtz@escuela.edu.mx</td>
+                        <td style="padding: 15px;"><span class="badge" style="background: rgba(9, 255, 0, 0.2); color: #047857;">Estudiante</span></td>
+                        <td style="padding: 15px;">10/02/2026</td>
+                        <td style="padding: 15px; text-align: center;">
+                            <button title="Ver Detalle" style="background: none; border: none; color: var(--primary); cursor: pointer; font-size: 1.1rem;"><i class="fas fa-user-edit"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <div class="accessibility-wrapper" id="draggableWrapper">
+            <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
+                <i class="fas fa-universal-access"></i> 
+            </button>
+            
+            <div class="access-menu" id="accessMenu">
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
+        </div>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
+        </div>
+    </div>
+        </div>
 
-        const filtro = document.getElementById("filtroUsuario").value;
-        let url = "apiUsuario.php";
+    <div id="reading-guide" class="reading-guide"></div>
+        </div>
 
-        if (filtro.trim() !== "") {
-            url += "?filtro=" + encodeURIComponent(filtro);
-        }
+        <footer class="footer">
+            <div class="footer-contenido container">
+                <div class="footer-col about">
+                    <h3>Loan<span>Ware</span></h3>
+                    <p>Optimizando el acceso tecnológico en la educación.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
 
-        const tbody = document.getElementById("tablaUsuarios");
-        tbody.innerHTML = "<tr><td colspan='8'>Cargando usuarios...</td></tr>";
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> LoanWare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +52 771 234 8743</p>
+                    <p><i class="fas fa-location-dot"></i> Huejutla, Hidalgo</p>
+                </div>
 
-        fetch(url)
-            .then(resp => resp.text())
-            .then(data => {
-                tbody.innerHTML = "";
-
-                if (data.trim() === "No hay registros") {
-                    tbody.innerHTML = "<tr><td colspan='8'>No hay usuarios registrados</td></tr>";
-                    return;
-                }
-
-                const filas = data.trim().split("\n");
-
-                filas.forEach(fila => {
-                    const c = fila.split("|");
-
-                    tbody.innerHTML += `
-                        <tr>
-                            <td>${c[0]}</td>
-                            <td>${c[1]}</td>
-                            <td>${c[2]}</td>
-                            <td>${c[3]} ${c[4]}</td>
-                            <td>${c[5]}</td>
-                            <td>${c[6]}</td>
-                            <td>${c[7]}</td>
-                            <td>
-                                <button onclick="verDetalle(${c[0]})" class="btn-detalles">Ver</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-            });
-    }
-
-    function verDetalle(id) {
-        alert("Usuario ID: " + id);
-    }
-
-    document.addEventListener("DOMContentLoaded", cargarUsuarios);
-</script>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <nav class="footer-links">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                        <a href="#">Ayuda</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LoanWare — Diseñado para el éxito educativo
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        
+        <script src="../main.js"></script>
 
 </body>
 </html>
