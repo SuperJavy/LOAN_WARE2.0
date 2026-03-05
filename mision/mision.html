@@ -1,27 +1,10 @@
-<?php
-session_start();
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: login.html');
-    exit();
-}
-
-// 🔹 AGREGADO: asegurar que exista el rol
-if (!isset($_SESSION['id_rol'])) {
-    $_SESSION['id_rol'] = 0;
-}
-
-$nombre_usuario = $_SESSION['nombre_usuario'] ?? 'Usuario';
-
-// 🔹 AGREGADO: forzar rol como entero
-$id_rol = (int) $_SESSION['id_rol'];
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Misión</title>
     <link rel="stylesheet" href="publico.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -38,13 +21,6 @@ $id_rol = (int) $_SESSION['id_rol'];
         <a href="perfil.php" class="logout-btn">Perfil</a>
     </div>
 </header>
-
-<!-- 🔹 AGREGADO (opcional, solo para prueba visual del rol) -->
-<!--
-<div style="background:#eee; padding:5px; text-align:center;">
-    Rol activo: <?php echo $id_rol; ?>
-</div>
--->
 
 <nav>
 

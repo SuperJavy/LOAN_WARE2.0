@@ -1,7 +1,7 @@
 /* Variables de color basadas en tu captura */
 :root {
     --primary: #1a392a;     /* Verde oscuro */
-    --accent: #09FF00;      /* Verde neón */
+    --accent: #84cc16;
     --light-bg: #f8fafc;    /* Fondo suave */
     --white: #ffffff;
     --text-dark: #1e293b;
@@ -553,3 +553,67 @@ html.ceguera-total {
         from { opacity: 0; transform: translateY(5px); }
         to { opacity: 1; transform: translateY(0); }
     }
+    /* --- RESPONSIVO PARA TELÉFONOS --- */
+@media (max-width: 768px) {
+    
+    /* Cambiamos el Grid de 2 columnas a 1 sola columna */
+    main.container {
+        grid-template-columns: 1fr !important; /* El aside y la sección se apilan */
+        gap: 20px !important;
+        padding: 20px 15px !important;
+    }
+
+    /* El aside (filtros) ahora ocupa todo el ancho */
+    aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustamos el encabezado del catálogo */
+    .section-header h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+    }
+    
+    .section-header .line {
+        margin: 10px auto !important; /* Centramos la línea */
+    }
+
+    /* El contenedor de equipos (noticias) suele verse mejor en 1 columna en móviles pequeños */
+    .contenedor-noticias {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* Ajustamos el Header para que no se amontone */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .main-nav a {
+        margin: 0 5px;
+        font-size: 0.8rem;
+    }
+    
+}
+@media (max-width: 768px) {
+    aside ul {
+        display: flex;
+        overflow-x: auto; /* Permite scroll horizontal si hay muchas categorías */
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+    
+    aside li {
+        white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
+    }
+}
