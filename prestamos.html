@@ -83,92 +83,108 @@
         </div>
     </nav>
     <main class="container seccion-about">
-    <div class="section-header" style="text-align: left;">
-        <span class="tag">Movimientos</span>
-        <h2>Registro de Préstamos</h2>
-        <div class="line" style="margin-left: 0;"></div>
-        <p>Gestiona y asigna equipos a los usuarios del sistema.</p>
+    <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+        <span class="tag">Panel de Control</span>
+        <h2 style="font-size: 2.8rem;">Gestión de Préstamos</h2>
+        <div class="line" style="margin: 15px 0;"></div>
+        <p>Registra la salida de equipos y monitorea las entregas activas en tiempo real.</p>
     </div>
 
-    <div class="about-grid" style="margin-bottom: 40px;">
+    <div class="about-grid">
         
         <div class="card">
             <div class="card-icon">
-                <i class="fas fa-plus-circle"></i>
+                <i class="fas fa-hand-holding-medical"></i>
             </div>
-            <h3>Nuevo Préstamo</h3>
-            <p>Selecciona el usuario y el equipo para generar el vale de préstamo.</p>
+            <h3>Registrar Salida</h3>
+            <p>Complete los datos para generar el folio de préstamo.</p>
             
-            <form action="#" method="POST" style="margin-top: 20px;">
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; font-weight:700; color:var(--primary); margin-bottom:5px;">Usuario / Alumno</label>
-                    <input type="text" placeholder="Nombre o Matrícula" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:inherit;">
-                </div>
-
+            <form action="#" method="POST" class="form-prestamo" style="margin-top: 25px;">
                 <div style="margin-bottom: 20px;">
-                    <label style="display:block; font-weight:700; color:var(--primary); margin-bottom:5px;">Equipo a Prestar</label>
-                    <select style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:inherit;">
-                        <option>Seleccionar equipo disponible...</option>
-                        <option>Laptop Dell #001</option>
-                        <option>Proyector Epson #04</option>
-                    </select>
+                    <label class="tag" style="display: block; margin-bottom: 8px;">ID del Solicitante</label>
+                    <div style="position: relative; display: flex; align-items: center;">
+                        <i class="fas fa-user" style="position: absolute; left: 15px; color: var(--primary); opacity: 0.5;"></i>
+                        <input type="text" placeholder="Matrícula o Nombre" style="width: 100%; padding: 12px 12px 12px 40px; border-radius: 10px; border: 2px solid #f1f5f9; background: #f8fafc; font-family: inherit; font-weight: 600;">
+                    </div>
                 </div>
 
-                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; text-align: center; display: block;">
-                    CONFIRMAR PRÉSTAMO
+                <div style="margin-bottom: 25px;">
+                    <label class="tag" style="display: block; margin-bottom: 8px;">Equipo Disponible</label>
+                    <div style="position: relative; display: flex; align-items: center;">
+                        <i class="fas fa-laptop" style="position: absolute; left: 15px; color: var(--primary); opacity: 0.5;"></i>
+                        <select style="width: 100%; padding: 12px 12px 12px 40px; border-radius: 10px; border: 2px solid #f1f5f9; background: #f8fafc; font-family: inherit; appearance: none; font-weight: 600;">
+                            <option>Seleccionar equipo...</option>
+                            <option>Laptop Dell Latitude - ID: 001</option>
+                            <option>Proyector Epson - ID: 042</option>
+                            <option>Cámara Canon - ID: 015</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px;">
+                    <i class="fas fa-check-circle"></i> GENERAR PRÉSTAMO
                 </button>
             </form>
         </div>
 
         <div class="about-stats">
             <div class="stat-card">
-                <i class="fas fa-clock"></i>
+                <i class="fas fa-clock" style="color: var(--accent);"></i>
                 <h3 class="tag">Préstamos Hoy</h3>
-                <h2 style="font-size: 3rem; color: var(--primary);">08</h2>
-                <p class="fecha">Actualizado: 05/03/2026</p>
+                <h2 style="font-size: 3.5rem; color: var(--primary); font-weight: 800;">12</h2>
+                <p class="fecha">Flujo de salida estable</p>
             </div>
             
             <div class="stat-card">
-                <i class="fas fa-exclamation-triangle"></i>
-                <h3 class="tag" style="color: #e11d48;">Pendientes</h3>
-                <h2 style="font-size: 3rem; color: var(--primary);">03</h2>
-                <p class="fecha">Por entregar hoy</p>
+                <i class="fas fa-history" style="color: #fbbf24;"></i>
+                <h3 class="tag">Pendientes</h3>
+                <h2 style="font-size: 3.5rem; color: var(--primary); font-weight: 800;">04</h2>
+                <p class="fecha">Retrasos detectados</p>
             </div>
         </div>
     </div>
 
-    <div class="card" style="overflow-x: auto;">
-        <div class="flex-between" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h3><i class="fas fa-list" style="color: var(--accent);"></i> Préstamos en curso</h3>
+    <div class="card" style="margin-top: 40px; border-top: 4px solid var(--accent);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <div>
+                <h3 style="font-size: 1.4rem;"><i class="fas fa- chalkboard-teacher"></i> Monitoreo de Equipos</h3>
+                <p class="tag" style="font-size: 0.7rem;">Lista de artículos actualmente fuera de inventario</p>
+            </div>
+            <div class="badge" style="background: var(--primary); color: var(--accent);">LIVE</div>
         </div>
         
-        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid var(--light-bg); color: var(--primary);">
-                    <th style="padding: 15px; font-weight: 700;">ID</th>
-                    <th style="padding: 15px; font-weight: 700;">Usuario</th>
-                    <th style="padding: 15px; font-weight: 700;">Equipo</th>
-                    <th style="padding: 15px; font-weight: 700;">Fecha Salida</th>
-                    <th style="padding: 15px; font-weight: 700;">Estado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid var(--light-bg);">
-                    <td style="padding: 15px;">#4521</td>
-                    <td style="padding: 15px; font-weight: 600;">Juan Pérez</td>
-                    <td style="padding: 15px;">Laptop Dell #001</td>
-                    <td style="padding: 15px;">05/03/2026</td>
-                    <td style="padding: 15px;"><span class="badge">Activo</span></td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--light-bg);">
-                    <td style="padding: 15px;">#4522</td>
-                    <td style="padding: 15px; font-weight: 600;">Maria Garcia</td>
-                    <td style="padding: 15px;">Proyector Epson #04</td>
-                    <td style="padding: 15px;">05/03/2026</td>
-                    <td style="padding: 15px;"><span class="badge">Activo</span></td>
-                </tr>
-            </tbody>
-        </table>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0 10px;">
+                <thead>
+                    <tr style="text-align: left; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
+                        <th style="padding: 10px 20px;">Usuario</th>
+                        <th style="padding: 10px 20px;">Equipo / ID</th>
+                        <th style="padding: 10px 20px;">Hora Salida</th>
+                        <th style="padding: 10px 20px;">Estado</th>
+                        <th style="padding: 10px 20px; text-align: right;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f8fafc; border-radius: 12px; transition: 0.3s;">
+                        <td style="padding: 20px; border-radius: 12px 0 0 12px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 35px; height: 35px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700;">JP</div>
+                                <strong>Juan Pérez</strong>
+                            </div>
+                        </td>
+                        <td style="padding: 20px;">
+                            <span style="display: block; font-weight: 600;">Laptop Dell</span>
+                            <small class="tag" style="font-size: 0.6rem;">ID: DELL-001</small>
+                        </td>
+                        <td style="padding: 20px; font-weight: 600; color: var(--text-muted);">09:15 AM</td>
+                        <td style="padding: 20px;"><span class="badge">ACTIVO</span></td>
+                        <td style="padding: 20px; text-align: right; border-radius: 0 12px 12px 0;">
+                            <button class="btn-login" style="padding: 5px 15px; font-size: 0.7rem;">DETALLES</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </main>
     <div class="accessibility-wrapper" id="draggableWrapper">
