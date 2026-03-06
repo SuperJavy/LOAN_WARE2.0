@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | LoanWare</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>LoanWare | Equipos Disponibles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../publico.css">
 </head>
@@ -18,7 +18,7 @@
             </div>
             <nav class="main-nav">
                 <a href="../index.html">Inicio</a>
-                <a href="../equipos/equipos.html">Equipos</a>
+                <a href="equipos.html" style="color: var(--accent);">Equipos</a>
                  <div class="dropdown" style="display: inline-block; position: relative;">
     
                 <a href="" class="dropbtn">
@@ -26,81 +26,71 @@
                 </a>
                 
                 <div class="dropdown-content">
-                    <a href="quines.php">
+                    <a href="quienes.php">
                         <i class="fas fa-users"></i> Quiénes Somos
                     </a>
                     <a href="mision.php">
                         <i class="fas fa-bullseye"></i> Misión
                     </a>
-                    <a href="vision.php">
+                    <a href="vision.php ">
                         <i class="fas fa-eye"></i> Visión
                     </a>
                 </div>
 
             </div>
-                <a href="contacto.html" style="color: var(--accent);">Contacto</a>
+                <a href="/contacto.html">Contacto</a>
             </nav>
-            <a href="/Login/login.html" class="btn-login">Iniciar Sesión</a>
+            <a href="/login.html" class="btn-login">Iniciar Sesión</a>
         </div>
     </header>
 
-    <main class="container" style="padding: 80px 20px;">
-        <div class="section-header">
-            <h2>Formulario de Contacto</h2>
-            <div class="line"></div>
-            <p style="color: var(--text-muted); margin-top: 15px;">Estamos aquí para resolver tus dudas sobre el préstamo de equipos.</p>
-        </div>
+    <main class="container" style="display: grid; grid-template-columns: 250px 1fr; gap: 40px; padding: 60px 20px;">
+        <aside style="background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow); height: fit-content;">
+            <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 1.1rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px;">
+                <i class="fas fa-filter"></i> Categorías
+            </h3>
+            <ul style="list-style: none;">
+                <li><a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem;">📦 Todos los equipos</a></li>
+            </ul>
+        </aside>
 
-        <section class="card" style="max-width: 600px; margin: 0 auto;">
-            <form action="enviar_contacto.php" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
-                <div>
-                    <label style="display: block; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Nombre completo:</label>
-                    <input type="text" name="nombre" placeholder="Ej. Johan hdez" required 
-                           style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px; font-family: inherit;">
-                </div>
-                
-                <div>
-                    <label style="display: block; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Correo electrónico:</label>
-                    <input type="email" name="correo" placeholder="usuario@escuela.edu.mx" required 
-                           style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px; font-family: inherit;">
-                </div>
+        <section>
+            <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                <h2 style="font-size: 2rem;">Catálogo de Equipos</h2>
+                <div class="line" style="margin: 10px 0;"></div>
+            </div>
 
-                <div>
-                    <label style="display: block; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Mensaje:</label>
-                    <textarea name="mensaje" rows="5" placeholder="Describe tu solicitud..." required 
-                              style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px; font-family: inherit; resize: none;"></textarea>
+            <div id="contenedorEquipos" class="contenedor-noticias">
+                <div class="loader" style="grid-column: 1/-1; text-align: center; padding: 50px;">
+                    <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; color: var(--primary);"></i>
+                    <p style="margin-top: 15px; color: var(--text-muted);">Cargando catálogo...</p>
                 </div>
-                
-                <button type="submit" class="btn-primary" style="border: none; cursor: pointer; width: 100%;">Enviar Mensaje</button>
-            </form>
+            </div>
         </section>
-    </main>
-</div>
+    </main> 
+
 <div class="accessibility-wrapper" id="draggableWrapper">
         <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
             <i class="fas fa-universal-access"></i> 
         </button>
         
         <div class="access-menu" id="accessMenu">
-            <h4>Centro de Inclusión</h4>
-            <div class="access-section">
-                <small>VISIÓN</small>
-                <button onclick="readContent()"><i class="fas fa-volume-up"></i> Leer Página</button>
-                <button onclick="toggleContrast()"><i class="fas fa-adjust"></i> Contraste Alto</button>
-                <button onclick="changeFontSize('increase')"><i class="fas fa-plus"></i> Agrandar Texto</button>
-            </div>
-            <div class="access-section">
-                <small>AUDICIÓN</small>
-                <button onclick="highlightVisuals()"><i class="fas fa-eye"></i> Resaltar Enlaces</button>
-            </div>
-            <div class="access-section">
-                <small>MOTRIZ / HABLA</small>
-                <button onclick="activateGuide()"><i class="fas fa-mouse-pointer"></i> Guía de Lectura</button>
-            </div>
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
+        </div>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
+        </div>
         </div>
     </div>
-<div id="reading-guide" class="reading-guide"></div>
-    </div>
+
+
+    <div id="reading-guide" class="reading-guide"></div>
     <footer class="footer">
     <div class="footer-contenido container">
         <div class="footer-col">
@@ -144,9 +134,9 @@
     <div class="footer-bottom">
         &copy; 2026 <strong>LoanWare</strong> — Diseñado para el éxito educativo.
     </div>
-    </footer>
+    </footer> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-
-    <script src="../main.js"></script>
+    
+    <script src="../main.js"></script>  
     </body>
 </html>

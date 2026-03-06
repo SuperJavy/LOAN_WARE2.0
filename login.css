@@ -4,7 +4,7 @@ body { font-family: 'Montserrat', sans-serif; }
         :root {
             --lw-green-dark: #1a392a;  /* El verde oscuro del fondo de tu imagen */
             --lw-green-light: #2d5a43; /* El verde de los botones */
-            --lw-accent: #84cc16;      /* El verde neón de tu código CSS */
+            --lw-accent: #09FF00;;      /* El verde neón de tu código CSS */
         }
 
         .bg-loanware-gradient {
