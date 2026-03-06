@@ -82,39 +82,153 @@
             <a href="/ajustes_footer.html"><i class="fas fa-cog"></i> Ajustes</a>
         </div>
     </nav>
+    <main class="container seccion-about">
+    <div class="section-header" style="text-align: left;">
+        <span class="tag">Movimientos</span>
+        <h2>Registro de Préstamos</h2>
+        <div class="line" style="margin-left: 0;"></div>
+        <p>Gestiona y asigna equipos a los usuarios del sistema.</p>
+    </div>
 
+    <div class="about-grid" style="margin-bottom: 40px;">
+        
+        <div class="card">
+            <div class="card-icon">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+            <h3>Nuevo Préstamo</h3>
+            <p>Selecciona el usuario y el equipo para generar el vale de préstamo.</p>
+            
+            <form action="#" method="POST" style="margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; font-weight:700; color:var(--primary); margin-bottom:5px;">Usuario / Alumno</label>
+                    <input type="text" placeholder="Nombre o Matrícula" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:inherit;">
+                </div>
 
-<footer class="footer">
-    <div class="footer-contenido">
-        <div class="footer-col">
-            <h3>LoanWare</h3>
-            <p>Sistema de gestión de préstamo de equipos y accesorios escolares.</p>
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; font-weight:700; color:var(--primary); margin-bottom:5px;">Equipo a Prestar</label>
+                    <select style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:inherit;">
+                        <option>Seleccionar equipo disponible...</option>
+                        <option>Laptop Dell #001</option>
+                        <option>Proyector Epson #04</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; text-align: center; display: block;">
+                    CONFIRMAR PRÉSTAMO
+                </button>
+            </form>
         </div>
-        <div class="footer-col">
-            <h4>Contacto</h4>
-            <p>Email: <a href="mailto:LoanWare@gmail.com">LoanWare@gmail.com</a></p>
-            <p>Teléfono: <a href="tel:+527712348743">+52 771 234 8743</a></p>
-            <p>Ubicación: Huejutla de Reyes, Hidalgo</p>
-        </div>
-        <div class="footer-col">
-            <h4>Síguenos</h4>
-            <div class="redes-sociales">
-                <a href="https://www.facebook.com/share/1Fhs9Vqs5o/" class="icono">Facebook</a>
-                <a href="https://www.instagram.com/im.levhiatan" class="icono">Instagram</a>
-                <a href="https://x.com/Levhiatan85" class="icono">X / Twitter</a>
-                <a href="https://www.tiktok.com/@im_sklas" class="icono">TikTok</a>
-                <a href="https://www.youtube.com/user/UTHH96" class="icono">YouTube</a>
+
+        <div class="about-stats">
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3 class="tag">Préstamos Hoy</h3>
+                <h2 style="font-size: 3rem; color: var(--primary);">08</h2>
+                <p class="fecha">Actualizado: 05/03/2026</p>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3 class="tag" style="color: #e11d48;">Pendientes</h3>
+                <h2 style="font-size: 3rem; color: var(--primary);">03</h2>
+                <p class="fecha">Por entregar hoy</p>
             </div>
         </div>
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="#">Aviso de privacidad</a><br>
-            <a href="#">Términos y condiciones</a>
+    </div>
+
+    <div class="card" style="overflow-x: auto;">
+        <div class="flex-between" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3><i class="fas fa-list" style="color: var(--accent);"></i> Préstamos en curso</h3>
+        </div>
+        
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid var(--light-bg); color: var(--primary);">
+                    <th style="padding: 15px; font-weight: 700;">ID</th>
+                    <th style="padding: 15px; font-weight: 700;">Usuario</th>
+                    <th style="padding: 15px; font-weight: 700;">Equipo</th>
+                    <th style="padding: 15px; font-weight: 700;">Fecha Salida</th>
+                    <th style="padding: 15px; font-weight: 700;">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid var(--light-bg);">
+                    <td style="padding: 15px;">#4521</td>
+                    <td style="padding: 15px; font-weight: 600;">Juan Pérez</td>
+                    <td style="padding: 15px;">Laptop Dell #001</td>
+                    <td style="padding: 15px;">05/03/2026</td>
+                    <td style="padding: 15px;"><span class="badge">Activo</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--light-bg);">
+                    <td style="padding: 15px;">#4522</td>
+                    <td style="padding: 15px; font-weight: 600;">Maria Garcia</td>
+                    <td style="padding: 15px;">Proyector Epson #04</td>
+                    <td style="padding: 15px;">05/03/2026</td>
+                    <td style="padding: 15px;"><span class="badge">Activo</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+    <div class="accessibility-wrapper" id="draggableWrapper">
+            <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
+                <i class="fas fa-universal-access"></i> 
+            </button>
+            
+            <div class="access-menu" id="accessMenu">
+        <h4>Centro de Inclusión</h4>
+        <div class="access-section">
+            <small>VISIÓN Y CEGUERA</small>
+            <button  type="button" onclick="toggleNarrador()"><i class="fas fa-comment-dots"></i> Narrador de Voz</button>
+            <button type="button" onclick="toggleDaltonismo()"><i class="fas fa-eye"></i> Modos Daltonismo</button>
+        </div>
+        <div class="access-section">
+            <small>TAMAÑO DE TEXTO</small>
+            <button type="button" onclick="cambiarFontSize('increase')"><i class="fas fa-plus"></i> Aumentar</button>
+            <button type="button" onclick="cambiarFontSize('decrease')"><i class="fas fa-minus"></i> Disminuir</button>
         </div>
     </div>
-    <div class="footer-bottom">
-        © 2025 LoanWare — Todos los derechos reservados
-    </div>
-</footer>
+        </div>
+
+    <div id="reading-guide" class="reading-guide"></div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-contenido container">
+                <div class="footer-col about">
+                    <h3>Loan<span>Ware</span></h3>
+                    <p>Optimizando el acceso tecnológico en la educación.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> LoanWare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +52 771 234 8743</p>
+                    <p><i class="fas fa-location-dot"></i> Huejutla, Hidalgo</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <nav class="footer-links">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                        <a href="#">Ayuda</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LoanWare — Diseñado para el éxito educativo
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        
+        <script src="../main.js"></script>
 </body>
 </html>
