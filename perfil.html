@@ -11,25 +11,24 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <i class="fas fa-microchip"></i>
-                <h1>Loan<span>Ware</span></h1>
-            </div>
-            <nav class="main-nav">
-                <a href="/index.html">Inicio</a>
-                <a href="/equipos/equipos.html">Equipos</a> 
-                <a href="/quienes/quienes.html">Nosotros</a>
-                <a href="/contacto/contacto.html">Contacto</a>
-            </nav>
-            <div class="login-container">
-                <span class="btn-login" style="background: transparent; border: none;">
-                    <i class="fas fa-user-circle"></i> <?php echo htmlspecialchars($nombre); ?>
-                </span>
-            </div>
+   <header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <i class="fas fa-microchip"></i>
+            <h1>Loan<span>Ware</span></h1>
         </div>
-    </header>
+
+        <div class="user-profile-header">
+            <div class="user-details">
+                <span class="user-name">Administrador</span>
+                <span class="user-status"><i class="fas fa-circle"></i> En línea</span>
+            </div>
+            <a href="/perfil/perfil.html" class="user-avatar-link">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+    </div>
+</header>
 
     <section class="seccion-about">
         <div class="container">

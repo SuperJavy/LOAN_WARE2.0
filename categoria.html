@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Admin LoanWare</title>
+    <title>Categorías | LoanWare</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../publico.css">
 </head>
 <body>
-
     <header class="header">
         <div class="header-container">
             <div class="logo">
@@ -23,27 +22,26 @@
                     <i class="fas fa-user-shield" style="color: var(--accent);"></i> 
                     MODO ADMINISTRADOR
                 </span>
-                <a href="#" class="btn-login">MI PERFIL</a>
+                <a href="/perfil.html" class="btn-login">MI PERFIL</a>
             </div>
         </div>
     </header>
-
     <nav class="header" style="background-color: var(--primary); border-top: 1px solid rgba(255,255,255,0.1); padding: 5px 0;">
         <div class="header-container main-nav">
-            <a href="/adminDashboard/adminDashboard.html">Inicio</a>
-            <a href="/inventario/inventario.html">Inventario</a>
-            <a href="/historial/historial.html">Solicitudes</a>
-            <a href="/usuario/usuario.html">Usuarios</a>
+            <a href="/adminDashboard.html">Inicio</a>
+            <a href="/inventario.html">Inventario</a>
+            <a href="/historial.html">Solicitudes</a>
+            <a href="/usuario.html">Usuarios</a>
             <div class="dropdown" style="display: inline-block; position: relative;">
                 <a href="#" class="dropbtn">
                     Catalogos <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
                 </a>
                 
                 <div class="dropdown-content" style="background-color: var(--primary); min-width: 180px; box-shadow: var(--shadow); border-radius: 0 0 10px 10px;">
-                    <a href="/marca/marca.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <a href="/marca.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
                         <i class="fas fa-arrow-up" style="color: var(--accent); margin-right: 10px;"></i> Marca
                     </a>
-                    <a href="/categoria/categoria.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem;">
+                    <a href="/categoria.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem;">
                         <i class="fas fa-arrow-down" style="color: var(--accent); margin-right: 10px;"></i> Categoría
                     </a>
                 </div>
@@ -54,10 +52,10 @@
                 </a>
                 
                 <div class="dropdown-content" style="background-color: var(--primary); min-width: 180px; box-shadow: var(--shadow); border-radius: 0 0 10px 10px;">
-                    <a href="/prestamos/prestamos.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <a href="/prestamos.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
                         <i class="fas fa-arrow-up" style="color: var(--accent); margin-right: 10px;"></i> Prestamos
                     </a>
-                    <a href="/devoluciones/devoluciones.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem;">
+                    <a href="/devoluciones.html" style="display: block; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.8rem;">
                         <i class="fas fa-arrow-down" style="color: var(--accent); margin-right: 10px;"></i> Devoluciones
                     </a>
                 </div>
@@ -70,62 +68,75 @@
                 </a>
                 
                 <div class="dropdown-content">
-                    <a href="/quienes/quienes.html">
+                    <a href="/quienes.html">
                         <i class="fas fa-users"></i> Quiénes Somos
                     </a>
-                    <a href="/mision/mision.html">
+                    <a href="/mision.html">
                         <i class="fas fa-bullseye"></i> Misión
                     </a>
-                    <a href="/vision/vision.html">
+                    <a href="/vision.html">
                         <i class="fas fa-eye"></i> Visión
                     </a>
                 </div>
 
             </div>
             
-            <a href="/ajustes_footer/ajustes_footer.html"><i class="fas fa-cog"></i> AJUSTES</a>
+            <a href="/ajustes_footer.html"><i class="fas fa-cog"></i> Ajustes</a>
         </div>
     </nav>
 
     <main class="container seccion-about">
         <div class="about-text">
-            <span class="tag">Panel de Gestión</span>
-            <h2>Resumen del Sistema</h2>
-            <p style="color: var(--text-muted); margin-bottom: 40px;">Bienvenido al centro de control. Aquí puedes monitorear el flujo de equipos en tiempo real.</p>
+            <span class="tag">Gestión de Catálogo</span>
+            <h2>Categorías de Equipos</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Consulta, filtra y organiza las categorías registradas en el sistema.</p>
         </div>
 
-        <div class="about-stats">
-            
-            <div class="stat-card">
-                <div class="card-icon">
-                    <i class="fas fa-hourglass-half"></i>
-                </div>
-                <h3 style="font-size: 0.9rem; color: var(--primary);">SOLICITUDES PENDIENTES</h3>
-                <h2 style="font-size: 3rem; color: var(--text-dark); margin: 10px 0;">14</h2>
-                <a href="#" class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem; display: inline-block; text-decoration: none;">REVISAR AHORA</a>
+        <div class="card" style="padding: 30px; margin-bottom: 40px; border-radius: 15px;">
+            <div class="about-text" style="text-align: left;">
+                <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px;">
+                    <i class="fas fa-filter" style="color: var(--accent);"></i> Filtros de Búsqueda
+                </h3>
+                <form class="hero-btns" style="justify-content: flex-start; gap: 10px;">
+                    <input type="text" placeholder="Buscar categoría..." style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit;">
+                    <button type="submit" class="btn-primary" style="border: none; cursor: pointer; padding: 10px 30px;">BUSCAR</button>
+                </form>
             </div>
+        </div>
 
-            <div class="stat-card" style="border-bottom: 4px solid #ff4b4b;">
-                <div class="card-icon" style="background: #fee2e2; color: #ff4b4b;">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <h3 style="font-size: 0.9rem; color: var(--primary);">DEVOLUCIONES VENCIDAS</h3>
-                <h2 style="font-size: 3rem; color: #ff4b4b; margin: 10px 0;">03</h2>
-                <p class="fecha">Seguimiento prioritario</p>
+        <div class="noticias" style="background: transparent; padding: 0;">
+            <div class="card" style="padding: 0; overflow: hidden; border-radius: 15px;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="background-color: var(--primary); color: white;">
+                            <th style="padding: 18px 25px; font-size: 0.85rem; letter-spacing: 1px;">ID</th>
+                            <th style="padding: 18px 25px; font-size: 0.85rem; letter-spacing: 1px;">NOMBRE DE CATEGORÍA</th>
+                            <th style="padding: 18px 25px; font-size: 0.85rem; letter-spacing: 1px; text-align: center;">ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody style="color: var(--text-dark);">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 25px; font-weight: 700; color: var(--text-muted);">#001</td>
+                            <td style="padding: 15px 25px; font-weight: 600;">Laptops / Cómputo</td>
+                            <td style="padding: 15px 25px; text-align: center;">
+                                <button title="Editar" style="background: none; border: none; color: var(--primary); cursor: pointer; margin-right: 10px;"><i class="fas fa-edit"></i></button>
+                                <button title="Eliminar" style="background: none; border: none; color: #ff4b4b; cursor: pointer;"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 25px; font-weight: 700; color: var(--text-muted);">#002</td>
+                            <td style="padding: 15px 25px; font-weight: 600;">Proyectores y Video</td>
+                            <td style="padding: 15px 25px; text-align: center;">
+                                <button title="Editar" style="background: none; border: none; color: var(--primary); cursor: pointer; margin-right: 10px;"><i class="fas fa-edit"></i></button>
+                                <button title="Eliminar" style="background: none; border: none; color: #ff4b4b; cursor: pointer;"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <div class="stat-card">
-                <div class="card-icon">
-                    <i class="fas fa-laptop"></i>
-                </div>
-                <h3 style="font-size: 0.9rem; color: var(--primary);">EQUIPOS EN PRÉSTAMO</h3>
-                <h2 style="font-size: 3rem; color: var(--text-dark); margin: 10px 0;">28</h2>
-                <p class="fecha">Total fuera de almacén</p>
-            </div>
-
         </div>
     </main>
-     <div class="accessibility-wrapper" id="draggableWrapper">
+    <div class="accessibility-wrapper" id="draggableWrapper">
             <button class="btn-access" id="accessBtn" title="Opciones de Accesibilidad">
                 <i class="fas fa-universal-access"></i> 
             </button>
